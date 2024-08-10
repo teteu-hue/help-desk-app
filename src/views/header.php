@@ -2,6 +2,7 @@
 
 require_once(dirname(__DIR__) . "/config/config.php");
 
+$logout_path =  "/help-desk-app/src/logic/logout.php";
 ?>
 
 <html>
@@ -27,6 +28,11 @@ require_once(dirname(__DIR__) . "/config/config.php");
         width: 100%;
         margin: 0 auto;
       }
+      .card-consultar-chamado {
+        padding: 30px 0 0 0;
+        width: 100%;
+        margin: 0 auto;
+      }
     </style>
   </head>
 
@@ -47,10 +53,37 @@ require_once(dirname(__DIR__) . "/config/config.php");
         ?>
         App Help Desk
       </a>
-      <div>
-        <ul class="list-unstyled">
-          <li class="text-white">Email</li>
-          <li class="text-white">Nome Cliente</li>
-        </ul>
-      </div>
+      <?php 
+
+      if(session_status() == PHP_SESSION_ACTIVE)
+      {
+        if(isset($_SESSION['email']) && isset($_SESSION['name_user']))
+        {
+        $email = $_SESSION['email'];
+        $name_user = $_SESSION['name_user'];
+    
+        echo "
+          <div>
+            <ul class='list-unstyled row align-items-center'>
+              <li class='text-light mr-3'>$email</li>
+              <li class='text-light mr-3'>$name_user</li>
+              <li class='text-light mr-3 mt-3'>
+            
+              <form action=''>
+                <input class='btn btn-danger btn-sm text-white' type='submit' value='Sair' />
+              </form>
+              </li>
+            </ul>
+          </div>
+        ";
+       } else 
+       {
+          header("Location: ../../index.php?error=dont_have_permission");
+       }
+       
+      }
+
+      ?>
+
+      
     </nav>
