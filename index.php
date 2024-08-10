@@ -1,12 +1,36 @@
 <?php 
 
 require_once(dirname(__FILE__) . "/src/views/header.php");
+require_once(dirname(__FILE__) . "/src/config/config.php");
 
-$validate_login =  "/help-desk-app/src/logic/valida_login.php";
 ?>
 
     <div class="container">    
-      <div class="row">
+      <div class="row flex-column">
+        <?php
+
+          if(isset($_GET['logout']))
+          {
+            $logout = $_GET['logout'];
+            switch($logout)
+            {
+              case 1:
+                echo "
+                    <h1 class='text-center m-3'>
+                        Entre novamente!
+                    </h1>
+                ";
+                break;
+            }
+          } else 
+          {
+            echo "
+                  <h1 class='text-center m-3'>
+                    Seja bem vindo ao APP HELP DESK!
+                  </h1>
+              ";
+          }
+        ?>
 
         <div class="card-login">
           <div class="card">
@@ -14,7 +38,7 @@ $validate_login =  "/help-desk-app/src/logic/valida_login.php";
               Login
             </div>
             <div class="card-body">
-              <form action="<?php echo  $validate_login; ?>" method="post">
+              <form action="<?php echo  $login_path; ?>" method="post">
                 <div class="form-group">
                   <input type="email" name="email" class="form-control" placeholder="E-mail">
                 </div>
@@ -23,13 +47,17 @@ $validate_login =  "/help-desk-app/src/logic/valida_login.php";
                 </div>
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
               </form>
-              <?php 
+              <?php
+
                 if(isset($_GET['error']))
                 {
                   $error = $_GET['error'];
                   switch($error){
                     case 'not_found_user':
-                      echo "<div class='bg-danger'>Usuário não encontrado!</div>";
+                      echo "<div class='text-danger text-center'>Usuário não encontrado!</div>";
+                      break;
+                    case 'dont_have_permission':
+                      echo "<div class='text-danger text-center'>Permissão inválida</div>";
                       break;
                   }
                 }

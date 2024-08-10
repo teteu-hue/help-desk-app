@@ -1,13 +1,7 @@
 <?php
-echo "<pre>";
 session_start();
-print_r($_SESSION);
-echo "</pre>";
 
 require_once(dirname(__FILE__) . "/header.php");
-
-var_dump(PUBLIC_DIR);
-
 ?>
 
 
@@ -33,13 +27,14 @@ var_dump(PUBLIC_DIR);
               </a>
             </div>
             <div class="col-6 d-flex justify-content-center">
-              <?php
-
-              echo "
-                    <img src='$search_form_path_img' 
-                      width='70' 
-                      height='70'>"
-              ?>
+              <a href="./consultar_chamado.php">
+                <?php
+                echo "
+                      <img src='$search_form_path_img'
+                        width='70'
+                        height='70'>"
+                ?>
+              </a>
             </div>
 
           </div>
@@ -47,6 +42,6 @@ var_dump(PUBLIC_DIR);
       </div>
     </div>
   </div>
-<?php
-require_once(dirname(__FILE__) . "/footer.php");
-?>
+  <?php
+  require_once(dirname(__FILE__) . "/footer.php");
+  ?>

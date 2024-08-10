@@ -1,9 +1,9 @@
 <?php 
 
+require_once("./user_auth.php");
 require_once(dirname(__DIR__) . "/database/Dao.class.php");
 $home_dir = "../views/home.php";
-
-$usuario_autenticado = false;
+$index_dir = $_SERVER['DOCUMENT_ROOT'] . "/help-app-desk/index.php";
 
 function search_user_in_database($email, $senha)
 {
@@ -43,8 +43,8 @@ if($usuario_autenticado == TRUE)
     $_SESSION['name_user'] = $result['name_user'];
     header("Location: $home_dir");
 } else {
-    header('Location: index.php?error=not_found_user');
+
+    header("Location: ../../index.php?error=not_found_user");
 }
 
-echo "<pre>";
 ?>

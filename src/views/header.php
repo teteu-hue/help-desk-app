@@ -69,7 +69,7 @@ $logout_path =  "/help-desk-app/src/logic/logout.php";
               <li class='text-light mr-3'>$name_user</li>
               <li class='text-light mr-3 mt-3'>
             
-              <form action=''>
+              <form action='$logout_path' method='post'>
                 <input class='btn btn-danger btn-sm text-white' type='submit' value='Sair' />
               </form>
               </li>

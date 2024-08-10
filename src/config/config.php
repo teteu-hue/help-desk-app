@@ -1,9 +1,14 @@
 <?php
-
 /**
- * FILE PATH'S
+ * FILE'S DIR
  */
 $public_dir = "/help-desk-app/public/";
+
+/**
+ * FILE'S PATH
+ */
+$logout_path =  "/help-desk-app/src/logic/logout.php";
+$login_path =  "/help-desk-app/src/logic/login.php";
 
 /**
  * CONSTANTS
