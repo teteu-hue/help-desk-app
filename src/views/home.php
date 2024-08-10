@@ -47,6 +47,6 @@ var_dump(PUBLIC_DIR);
       </div>
     </div>
   </div>
-  </body>
-
-  </html>
+<?php
+require_once(dirname(__FILE__) . "/footer.php");
+?>

@@ -3,7 +3,6 @@
 require_once(dirname(__FILE__) . "/src/views/header.php");
 
 $validate_login =  "/help-desk-app/src/logic/valida_login.php";
-
 ?>
 
     <div class="container">    
@@ -40,5 +39,8 @@ $validate_login =  "/help-desk-app/src/logic/valida_login.php";
           </div>
         </div>
     </div>
-  </body>
-</html>
+<?php 
+
+require_once(dirname(__FILE__) . "/src/views/footer.php");
+
+?>
