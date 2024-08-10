@@ -1,27 +1,10 @@
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>App Help Desk</title>
+<?php 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+require_once(dirname(__FILE__) . "/src/views/header.php");
 
-    <style>
-      .card-login {
-        padding: 30px 0 0 0;
-        width: 350px;
-        margin: 0 auto;
-      }
-    </style>
-  </head>
+$validate_login =  "/help-desk-app/src/logic/valida_login.php";
 
-  <body>
-
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
-        <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        App Help Desk
-      </a>
-    </nav>
+?>
 
     <div class="container">    
       <div class="row">
@@ -32,7 +15,7 @@
               Login
             </div>
             <div class="card-body">
-              <form action="./valida_login.php" method="post">
+              <form action="<?php echo  $validate_login; ?>" method="post">
                 <div class="form-group">
                   <input type="email" name="email" class="form-control" placeholder="E-mail">
                 </div>

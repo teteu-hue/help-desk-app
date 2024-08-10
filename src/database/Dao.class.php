@@ -8,8 +8,7 @@ class Dao
     private $file;
 
     public function __construct()
-    {
-        
+    {      
     }
 
     private function setFile($file = 'config-database.ini')
