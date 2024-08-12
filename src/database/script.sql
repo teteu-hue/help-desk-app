@@ -5,11 +5,22 @@ CREATE TABLE IF NOT EXISTS usuario(
     senha VARCHAR(20) NOT NULL
 );
 
+ALTER TABLE usuario ADD COLUMN role ENUM('admin', 'user');
+UPDATE usuario SET role = 'admin' WHERE id_user = 1 AND id_user = 2;
+UPDATE usuario SET role = 'user' WHERE id_user = 3 AND id_user = 4;
+
 INSERT INTO
     usuario(name_user, email, senha)
 VALUES
     ('admin', 'admin@admin.com', 'admin'),
     ('root', 'root@root.com', 'root');
+
+    INSERT INTO
+    usuario(name_user, email, senha)
+VALUES
+    ('usuario', 'usuario@usuario.com', 'usuario'),
+    ('usuario2', 'usuario2@usuario2.com', 'usuario2');
+
 
 CREATE TABLE IF NOT EXISTS chamado (
     id_chamado INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
