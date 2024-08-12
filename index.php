@@ -57,7 +57,7 @@ require_once(dirname(__FILE__) . "/src/config/config.php");
                       echo "<div class='text-danger text-center'>Usuário não encontrado!</div>";
                       break;
                     case 'dont_have_permission':
-                      echo "<div class='text-danger text-center'>Permissão inválida</div>";
+                      echo "<div class='text-danger text-center'>Acesso negado!</div>";
                       break;
                   }
                 }

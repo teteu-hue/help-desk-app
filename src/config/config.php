@@ -3,6 +3,7 @@
  * FILE'S DIR
  */
 $public_dir = "/help-desk-app/public/";
+$views_dir = "/help-desk-app/src/views";
 
 /**
  * FILE'S PATH

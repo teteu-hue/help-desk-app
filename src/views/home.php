@@ -36,6 +36,18 @@ require_once(dirname(__FILE__) . "/header.php");
                 ?>
               </a>
             </div>
+            <?php 
+              if(isset($_GET['error']))
+              {
+                $error = $_GET['error'];
+
+                switch($error)
+                {
+                  case 'unauthorized':
+                    echo "<h1 class='display-3 text-danger'>Acesso negado!</h1>";
+                }
+              }
+            ?>
 
           </div>
         </div>
