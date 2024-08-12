@@ -1,7 +1,8 @@
 <?php 
 session_start();
 require_once(dirname(__FILE__) . "/header.php");
-
+require_once(dirname(__DIR__) . "/logic/consultar_chamados.php");
+$data = consultar_chamados($_SESSION['id_user']);
 ?>
 
     <div class="container">    
@@ -14,24 +15,38 @@ require_once(dirname(__FILE__) . "/header.php");
             </div>
             
             <div class="card-body">
+
+              <?php 
+                if(!empty($data)){
+
+                  foreach($data as $row)
+                  {
+                  $titulo = $row['titulo'];
+                  $categoria = $row['categoria'];
+                  $descricao = $row['descricao'];
+                  echo "
+                  <div class='card mb-3 bg-light'>
+                    <div class='card-body'>
+                      <h5 class='card-title'>$titulo</h5>
+                      <h6 class='card-subtitle mb-2 text-muted'>$categoria</h6>
+                      <p class='card-text'>$descricao</p>
+                      </div>
+                      </div>
+                      ";
+                  }
+                } else 
+                {
+                  echo "
+                  <div class='card mb-3 bg-light'>
+                    <div class='card-body'>
+                      <h1 class='lead'>Usuário sem chamados em aberto</h1>
+                    </div>
+                  </div>";
+                }
+                    
+              ?>
               
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
-
-                </div>
-              </div>
-
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
-
-                </div>
-              </div>
+              
 
               <div class="row mt-5">
                 <div class="col-6">
