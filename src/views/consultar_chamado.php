@@ -2,7 +2,8 @@
 session_start();
 require_once(dirname(__FILE__) . "/header.php");
 require_once(dirname(__DIR__) . "/logic/consultar_chamados.php");
-$data = consultar_chamados($_SESSION['id_user']);
+require_once(dirname(__DIR__) . "/logic/isAdminOrUser.php");
+$data = consultar_chamados($_SESSION['id_user'], $_SESSION['role']);
 ?>
 
     <div class="container">    
@@ -24,10 +25,12 @@ $data = consultar_chamados($_SESSION['id_user']);
                   $titulo = $row['titulo'];
                   $categoria = $row['categoria'];
                   $descricao = $row['descricao'];
+                  $name_user = $row['name_user'];
                   echo "
                   <div class='card mb-3 bg-light'>
                     <div class='card-body'>
-                      <h5 class='card-title'>$titulo</h5>
+                      <h5 class='display-4'>$name_user</h5>
+                      <h5 class='card-title text-center'>$titulo</h5>
                       <h6 class='card-subtitle mb-2 text-muted'>$categoria</h6>
                       <p class='card-text'>$descricao</p>
                       </div>

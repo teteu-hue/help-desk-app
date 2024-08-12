@@ -42,6 +42,7 @@ if($usuario_autenticado == TRUE)
     $_SESSION['email'] = $result['email'];
     $_SESSION['name_user'] = $result['name_user'];
     $_SESSION['id_user'] = $result['id_user'];
+    $_SESSION['role'] = $result['role'];
     header("Location: $home_dir");
 } else {
 
