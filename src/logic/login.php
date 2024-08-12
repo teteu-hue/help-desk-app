@@ -7,7 +7,7 @@ $index_dir = $_SERVER['DOCUMENT_ROOT'] . "/help-app-desk/index.php";
 
 function search_user_in_database($email, $senha)
 {
-    $sql_query = "SELECT * FROM usuario WHERE email = '$email' AND password = '$senha'";
+    $sql_query = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
 
     $dao = new Dao();
 
