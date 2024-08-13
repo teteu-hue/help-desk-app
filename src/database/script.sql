@@ -32,3 +32,4 @@ CREATE TABLE IF NOT EXISTS chamado (
     REFERENCES usuario(id_user)
     ON DELETE CASCADE
 );
+ALTER TABLE chamado MODIFY titulo VARCHAR(100);

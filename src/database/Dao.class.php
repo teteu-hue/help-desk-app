@@ -123,6 +123,26 @@ class Dao
         $this->closeConnection();
         return $this->validateQuery($result);
     }
+
+    public function run_non_query($query)
+    {
+        try
+        {
+            $this->getConnection();
+
+            $result = $this->connection->exec($query);
+            
+            if($result !== 1)
+            {
+                return false;
+            }
+            return $result;
+
+        } catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
 }
 
 ?>

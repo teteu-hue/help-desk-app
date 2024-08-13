@@ -9,14 +9,14 @@ function consultar_chamados($id_user, $role)
 
     if($role == 'admin')
     {
-        $sql_query = "SELECT titulo, categoria, descricao, usuario.name_user 
+        $sql_query = "SELECT chamado.id_chamado, titulo, categoria, descricao, usuario.name_user 
                   FROM chamado 
                   INNER JOIN usuario
                   ON usuario.id_user = chamado.id_user";
     } 
     else 
     {
-        $sql_query = "SELECT titulo, categoria, descricao, usuario.name_user 
+        $sql_query = "SELECT chamado.id_chamado, titulo, categoria, descricao, usuario.name_user 
         FROM chamado 
         INNER JOIN usuario 
         ON usuario.id_user = chamado.id_user 

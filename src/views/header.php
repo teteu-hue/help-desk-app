@@ -39,7 +39,7 @@ $logout_path =  "/help-desk-app/src/logic/logout.php";
   <body>
 
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="../../home.php">
         <?php
         
             echo "
